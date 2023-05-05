@@ -12,15 +12,11 @@ To use the script, first install the required dependencies by running the follow
 
 To run the script from the command line, navigate to the directory containing the script and run the following command:
 
-css
-
 `python main.py path/to/rekordbox.xml`
 
 This will process all tracks in the XML file and add the cue points based on the predefined rules.
 
 You can also specify a comma-separated list of playlists to edit by using the `--playlists` option:
-
-css
 
 `python main.py path/to/rekordbox.xml --playlists "Playlist 1,Playlist 2"`
 
