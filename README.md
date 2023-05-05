@@ -40,7 +40,7 @@ The recommended workflow for using this script is as follows:
 
 1.  In Rekordbox, export your collection to an XML file (File > Export Collection).
 2.  Run the script on the XML file using the command line as described above.
-3.  In Rekordbox, import the modified XML file (File > Import Collection) and select the playlists you want to update.
+3.  In Rekordbox, make sure that your XML file is loaded in rekordbox xml tab. Settings for this are in Preferences > Advanced > rekordbox xml > Imported Library.
 4.  To update the tags for the tracks in a specific playlist, select all the tracks in the playlist and drag them into your local playlist. This will update the tags for the tracks and add any new cue points that were added by the script. Press "Skip" to skip importing any duplicate tracks.
 
 Please note that the script does not modify your original Rekordbox library directly. Instead, it creates a modified copy of your library in the form of an XML file, which you can import back into Rekordbox.
