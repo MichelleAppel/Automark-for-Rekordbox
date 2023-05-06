@@ -42,6 +42,12 @@ To create a custom cue point or loop, add a dictionary with the following keys t
 
 Please note that the cue points and loops are added relative to the drop, which must be manually marked in Rekordbox. The script only adds cue points and loops when there is already a drop marker set, and the tempo and location of the drop marker must be correct before running the script.
 
+## Customizing Drop Marker Number
+
+By default, the script uses the hot cue labeled "D" in Rekordbox (represented by the number 3) as the drop marker. However, you can customize the drop marker number by modifying the `drop_mark_num` variable in `cue_points.py`. Set it to the desired hot cue number that corresponds to your preferred drop marker (e.g., 0 for A, 1 for B, 2 for C, etc.).
+
+Please note that you need to manually set the drop marker in Rekordbox for each track, and the script will only add cue points and loops relative to the selected drop marker.
+
 ## Workflow
 
 The recommended workflow for using this script is as follows:
