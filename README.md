@@ -1,6 +1,6 @@
 # Automark for Rekordbox
 
-Automark for Rekordbox is a Python script that automates the process of adding cue points and loops to your Rekordbox collection XML file. The script reads the XML file and adds cue points and loops to the tracks based on a customizable set of rules. The cue points and loops are added relative to the drop, which must be manually marked in Rekordbox.
+Automark for Rekordbox is a Python script that automates the process of adding cue points to your Rekordbox collection XML file. The script reads the XML file and adds cue points and loops to the tracks based on a customizable set of rules. The cue points and loops are added relative to the drop, which must be manually marked in Rekordbox.
 
 ## Installation
 
