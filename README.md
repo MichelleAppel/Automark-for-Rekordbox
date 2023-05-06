@@ -38,7 +38,7 @@ To create a custom cue point, add a dictionary with the following keys to the ap
 -   "beats": The number of beats relative to the drop (e.g., -32 for 32 beats before the drop)
 -   "num": The cue number (0-7 for hot cues, -1 for memory cues)
 
-Note that the cue points are added before the drop and must be manually selected in Rekordbox. The script only adds cue points when there is already a drop marker set, and the tempo and location of the drop marker must be correct before running the script.
+Note that the cue points are added before the drop, which must be manually selected in Rekordbox. The script only adds cue points when there is already a drop marker set, and the tempo and location of the drop marker must be correct before running the script.
 
 ## Workflow
 
