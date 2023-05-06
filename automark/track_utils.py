@@ -1,4 +1,4 @@
-from pyrekordbox.xml import PositionMark, Tempo
+from pyrekordbox.xml import PositionMark
 
 def add_mark_to_track(track, Name, Type, Start, End, Num):
     ''' Add a mark to a track. 
@@ -44,19 +44,17 @@ def remove_tempos_except_first(track):
         track._element.remove(tempo._element)
         track.tempos.remove(tempo)
 
-def find_drop_mark(marks):
+def find_drop_mark(marks, drop_mark_num=3):
     ''' Find the drop mark in a track.
 
         Args:
             track (pyrekordbox.Track): The track to find the drop mark in.
+            drop_mark_num (int): The number of the drop mark. Default is 3 (D in rekordbox).
 
         Returns:
             pyrekordbox.PositionMark: The drop mark if it was found, otherwise None.
     '''
-    for mark in marks:
-        if mark["Num"] == 3:
-            return mark
-    return None
+    return next((mark for mark in marks if mark["Num"] == drop_mark_num), None)
 
 def calculate_position_in_seconds(position_in_bars, tempo):
     ''' Calculate the position in seconds from the position in bars and the tempo.
@@ -70,28 +68,45 @@ def calculate_position_in_seconds(position_in_bars, tempo):
     '''
     return position_in_bars * (60 / tempo)
 
-def add_cue_points(track, drop_mark, cue_points, cue_type="cue"):
+def calculate_position_in_bars(position_in_seconds, tempo):
+    ''' Calculate the position in bars from the position in seconds and the tempo.
+
+        Args:
+            position_in_seconds (float): The position in seconds.
+            tempo (pyrekordbox.Tempo): The tempo.
+
+        Returns:
+            float: The position in bars.
+    '''
+    return position_in_seconds / (60 / tempo)
+
+def add_cue_points(track, drop_mark, cue_points):
     ''' Add cue points to a track.
 
         Args:
             track (pyrekordbox.Track): The track to add the cue points to.
             drop_mark (pyrekordbox.PositionMark): The drop mark.
             cue_points (list): A list of cue points to add to the track.
-            cue_type (str): The type of the cue points to add to the track.
 
         Returns:
             None
     '''
     position_in_seconds = drop_mark['Start']
     tempo = track.tempos[0]['Bpm']
-    position_in_bars = position_in_seconds / (60 / tempo)
+    position_in_bars = calculate_position_in_bars(position_in_seconds, tempo)
 
     for cp in cue_points:
-        position_in_bars_cp = position_in_bars + cp["beats"]  # Updated to use + instead of -
+        position_in_bars_cp = position_in_bars + cp["beats"]
         position_in_seconds_cp = position_in_bars_cp * (60 / tempo)
 
         if position_in_seconds_cp > 0:
-            add_mark_to_track(track, Name=cp["name"], Type=cue_type, Start=position_in_seconds_cp, End=None, Num=cp["num"])
+            if cp["type"] == "loop":
+                length = cp["length"]
+                end = calculate_position_in_seconds(position_in_bars_cp + length, tempo)
+            else:
+                end = None
+        
+            add_mark_to_track(track, Name=cp["name"], Type=cp["type"], Start=position_in_seconds_cp, End=end, Num=cp["num"])
 
 
 def get_tracks_from_playlist(playlist_node, rb_xml):
