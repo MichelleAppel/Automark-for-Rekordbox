@@ -11,7 +11,7 @@ Before you can use the script, you'll need to have Python and pip (the Python pa
 To get the script, you'll need to clone this repository (i.e., make a copy of the code on your computer). You can do this by installing [Git](https://git-scm.com/downloads) and running the following command in your terminal or command prompt:
 
 ```bash
-git clone https://github.com/your_username/automark-for-rekordbox.git
+git clone https://github.com/MichelleAppel/automark-for-rekordbox.git
 ```
 
 This will create a new folder called `automark-for-rekordbox` containing the script and related files.
