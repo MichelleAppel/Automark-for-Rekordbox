@@ -1,24 +1,40 @@
 # Automark for Rekordbox
 
-Automark for Rekordbox is a Python script that automates the process of adding cue points to your Rekordbox collection XML file. The script reads the XML file and adds cue points to the tracks based on a customizable set of rules. The cue points are added relative to the drop, which must be manually marked in Rekordbox.
+Automark for Rekordbox is a Python script that automates the process of adding cue points to your Rekordbox collection XML file. The script reads the XML file and adds cue points to the tracks based on a set of predefined rules. The cue points are added before the drop, which must be manually selected in Rekordbox.
+
+## Prerequisites
+
+Before you can use the script, you'll need to have Python and pip (the Python package manager) installed on your computer. If you don't have them installed yet, you can download Python from the [official website](https://www.python.org/downloads/) and follow the installation instructions. Pip is usually included with the Python installation.
+
+## Getting the Script
+
+To get the script, you'll need to clone this repository (i.e., make a copy of the code on your computer). You can do this by installing [Git](https://git-scm.com/downloads) and running the following command in your terminal or command prompt:
+
+```bash
+git clone https://github.com/your_username/automark-for-rekordbox.git
+```
+
+This will create a new folder called `automark-for-rekordbox` containing the script and related files.
 
 ## Installation
 
-To use the script, first install the required dependencies by running the following command in your terminal:
+To use the script, first install the required dependencies by running the following command in your terminal or command prompt:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Running the script
+This command installs the necessary Python libraries for the script to work.
 
-To run the script from the command line, navigate to the directory containing the script and run the following command:
+## Running the Script
+
+To run the script from the command line, navigate to the directory containing the script (`automark-for-rekordbox`) and run the following command:
 
 ```bash
 python main.py path/to/rekordbox.xml
 ```
 
-This will process all tracks in the XML file and add the cue points and loops based on the customized rules.
+This will process all tracks in the XML file and add the cue points based on the predefined rules.
 
 You can also specify a comma-separated list of playlists to edit by using the `--playlists` option:
 
