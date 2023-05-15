@@ -1,4 +1,4 @@
-from pyrekordbox.xml import PositionMark
+from .xml import PositionMark
 
 def add_mark_to_track(track, Name, Type, Start, End, Num):
     ''' Add a mark to a track. 

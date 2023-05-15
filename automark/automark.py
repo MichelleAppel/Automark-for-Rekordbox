@@ -1,4 +1,4 @@
-from pyrekordbox.xml import RekordboxXml
+from .xml import RekordboxXml
 
 from .track_utils import (
     remove_marks_from_track,
