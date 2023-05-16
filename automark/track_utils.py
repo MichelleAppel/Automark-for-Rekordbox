@@ -19,17 +19,18 @@ def add_mark_to_track(track, Name, Type, Start, End, Num):
     return mark
 
 def remove_marks_from_track(track):
-    ''' Remove all marks from a track.
+    ''' Remove all marks from a track. 
     
         Args:
             track (pyrekordbox.Track): The track to remove the marks from.
             
         Returns:
-            None        
+            None
     '''
-    for mark in track.marks[:]:
-        track._element.remove(mark._element)
-        track.marks.remove(mark)
+    marks_to_remove = [mark for mark in track.marks]
+    for mark in marks_to_remove:
+        if mark._element in track._element:
+            track._element.remove(mark._element)
 
 def remove_tempos_except_first(track):
     ''' Remove all tempos from a track except the first one.

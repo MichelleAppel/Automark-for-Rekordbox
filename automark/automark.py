@@ -8,13 +8,13 @@ from .track_utils import (
     get_tracks_from_playlist
 )
 
-from .cue_points import cue_points, drop_mark_num
-
 def process_collection_xml(
     path,
     selected_playlists=None,
     remove_existing_marks=True,
     retain_first_tempo=True,
+    drop_mark_num=None,
+    cue_points=None
 ):
     """
     Process a Rekordbox collection XML file.

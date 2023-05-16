@@ -1,5 +1,6 @@
 import argparse
 from automark.automark import process_collection_xml
+from automark.cue_points import cue_points, drop_mark_num
 
 def main():
     parser = argparse.ArgumentParser(description="Automatically add cue points to Rekordbox collection XML.")
@@ -9,7 +10,16 @@ def main():
 
     selected_playlists = args.playlists.split(",") if args.playlists else None
 
-    process_collection_xml(args.path, selected_playlists)
+    process_collection_xml(
+        args.path,
+        selected_playlists,
+        remove_existing_marks=True,
+        retain_first_tempo=True,
+        drop_mark_num=drop_mark_num,
+        cue_points=cue_points
+        )
+
+
 
 if __name__ == "__main__":
     main()
