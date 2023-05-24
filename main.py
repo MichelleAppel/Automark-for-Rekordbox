@@ -19,7 +19,5 @@ def main():
         cue_points=cue_points
         )
 
-
-
 if __name__ == "__main__":
     main()
